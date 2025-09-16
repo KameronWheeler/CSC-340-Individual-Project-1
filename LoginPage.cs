@@ -15,6 +15,7 @@ namespace Individual_Project
         public LoginPage()
         {
             InitializeComponent();
+            LoginErrorLabel.Text = "Username/Password incorrect";
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -23,6 +24,11 @@ namespace Individual_Project
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
         {
 
         }

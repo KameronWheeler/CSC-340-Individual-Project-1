@@ -50,11 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoctorMedicineRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorMedicineRequest.Designer.cs">
+      <DependentUpon>DoctorMedicineRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorMenu.Designer.cs">
+      <DependentUpon>DoctorMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="PayBills.cs">
       <SubType>Form</SubType>
@@ -82,8 +100,23 @@
     <Compile Include="SchedulerPage.Designer.cs">
       <DependentUpon>SchedulerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserMedicineRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserMedicineRequest.Designer.cs">
+      <DependentUpon>UserMedicineRequest.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DoctorMedicineRequest.resx">
+      <DependentUpon>DoctorMedicineRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorMenu.resx">
+      <DependentUpon>DoctorMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PayBills.resx">
       <DependentUpon>PayBills.cs</DependentUpon>
@@ -105,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="SchedulerPage.resx">
       <DependentUpon>SchedulerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMedicineRequest.resx">
+      <DependentUpon>UserMedicineRequest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

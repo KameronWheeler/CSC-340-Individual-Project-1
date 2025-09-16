@@ -34,6 +34,7 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.loginButton = new System.Windows.Forms.Button();
+            this.LoginErrorLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,17 +100,28 @@
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             // 
+            // LoginErrorLabel
+            // 
+            this.LoginErrorLabel.AutoSize = true;
+            this.LoginErrorLabel.Location = new System.Drawing.Point(208, 59);
+            this.LoginErrorLabel.Name = "LoginErrorLabel";
+            this.LoginErrorLabel.Size = new System.Drawing.Size(0, 16);
+            this.LoginErrorLabel.TabIndex = 5;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LoginErrorLabel);
             this.Controls.Add(this.panel1);
             this.Name = "LoginPage";
             this.Text = "LoginPage";
+            this.Load += new System.EventHandler(this.LoginPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label LoginErrorLabel;
     }
 }

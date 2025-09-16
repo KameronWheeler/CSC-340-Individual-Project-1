@@ -1,6 +1,6 @@
 ﻿namespace Individual_Project
 {
-    partial class Form1
+    partial class SchedulerConfirmation
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.requestsListBox.FormattingEnabled = true;
             this.requestsListBox.ItemHeight = 16;
             this.requestsListBox.Location = new System.Drawing.Point(51, 94);
-            this.requestsListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.requestsListBox.Margin = new System.Windows.Forms.Padding(4);
             this.requestsListBox.Name = "requestsListBox";
             this.requestsListBox.Size = new System.Drawing.Size(285, 324);
             this.requestsListBox.TabIndex = 0;
@@ -108,7 +108,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.textBox1.Location = new System.Drawing.Point(465, 94);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(209, 22);
             this.textBox1.TabIndex = 7;
@@ -117,7 +117,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.textBox2.Location = new System.Drawing.Point(465, 124);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(209, 22);
             this.textBox2.TabIndex = 8;
@@ -126,7 +126,7 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.textBox3.Location = new System.Drawing.Point(465, 154);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(209, 22);
             this.textBox3.TabIndex = 9;
@@ -136,7 +136,7 @@
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.textBox4.Location = new System.Drawing.Point(465, 184);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(209, 22);
             this.textBox4.TabIndex = 10;
@@ -170,7 +170,7 @@
             this.rejectButton.Text = "Reject";
             this.rejectButton.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // SchedulerConfirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,8 +188,8 @@
             this.Controls.Add(this.patientNameLabel);
             this.Controls.Add(this.requestsLabel);
             this.Controls.Add(this.requestsListBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "SchedulerConfirmation";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

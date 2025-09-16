@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace Individual_Project
 {
-    public partial class SchedulerConfirmation : Form
+    public partial class MainMenu : Form
     {
-        public SchedulerConfirmation()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainMenu_Load(object sender, EventArgs e)
         {
 
         }

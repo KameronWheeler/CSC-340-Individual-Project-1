@@ -146,7 +146,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "PayBills";
-            this.Text = "Form2";
+            this.Text = "PayBills";
             this.ResumeLayout(false);
             this.PerformLayout();
 
