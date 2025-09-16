@@ -10,15 +10,19 @@ using System.Windows.Forms;
 
 namespace Individual_Project
 {
-    public partial class SchedulerPanel : Form
+    public partial class PaymentInformation : Form
     {
-        public SchedulerPanel()
+        public PaymentInformation()
         {
             InitializeComponent();
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PaymentInformation_Load(object sender, EventArgs e)
         {
 
         }
