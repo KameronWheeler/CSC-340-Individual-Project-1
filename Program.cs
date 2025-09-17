@@ -16,7 +16,7 @@ namespace Individual_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PayBills());
+            Application.Run(new UserDoctorList());
            
         }
     }

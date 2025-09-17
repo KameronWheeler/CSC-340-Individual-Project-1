@@ -123,6 +123,7 @@
             this.Controls.Add(this.patientNameTextBox);
             this.Name = "SchedulerPage";
             this.Text = "SchedulerPage";
+            this.Load += new System.EventHandler(this.SchedulerPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
