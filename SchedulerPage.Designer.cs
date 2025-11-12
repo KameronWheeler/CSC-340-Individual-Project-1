@@ -60,7 +60,7 @@
             // 
             this.ScheduleButton.Location = new System.Drawing.Point(161, 128);
             this.ScheduleButton.Name = "ScheduleButton";
-            this.ScheduleButton.Size = new System.Drawing.Size(75, 23);
+            this.ScheduleButton.Size = new System.Drawing.Size(174, 23);
             this.ScheduleButton.TabIndex = 13;
             this.ScheduleButton.Text = "Schedule";
             this.ScheduleButton.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             // 
             this.SearchButton.Location = new System.Drawing.Point(161, 84);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.Size = new System.Drawing.Size(174, 23);
             this.SearchButton.TabIndex = 12;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@
             this.apptHistoryLabel.AutoSize = true;
             this.apptHistoryLabel.Location = new System.Drawing.Point(353, 56);
             this.apptHistoryLabel.Name = "apptHistoryLabel";
-            this.apptHistoryLabel.Size = new System.Drawing.Size(127, 16);
+            this.apptHistoryLabel.Size = new System.Drawing.Size(81, 16);
             this.apptHistoryLabel.TabIndex = 10;
-            this.apptHistoryLabel.Text = "Appointment History";
+            this.apptHistoryLabel.Text = "Note History";
             // 
             // patientLabel
             // 

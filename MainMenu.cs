@@ -21,5 +21,13 @@ namespace Individual_Project
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserDoctorList u = new UserDoctorList();
+            ActiveForm.Hide();
+            u.Show();
+            
+        }
     }
 }

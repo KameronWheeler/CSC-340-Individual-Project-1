@@ -31,18 +31,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.TextBox();
-            this.time = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.doctor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.TextBox();
+            this.date = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,102 +89,6 @@
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(544, 275);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Selected Date: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(543, 309);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 20);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Selected Time: ";
-            // 
-            // date
-            // 
-            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.date.Location = new System.Drawing.Point(675, 272);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(131, 26);
-            this.date.TabIndex = 6;
-            // 
-            // time
-            // 
-            this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.time.Location = new System.Drawing.Point(675, 306);
-            this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(131, 26);
-            this.time.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(228, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 25);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Date";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(542, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Available Times";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(547, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 61);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Request Appointment";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(675, 338);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 61);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(548, 91);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(258, 148);
-            this.listBox2.TabIndex = 13;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(233, 91);
-            this.monthCalendar1.MaxDate = new System.DateTime(2026, 9, 16, 0, 0, 0, 0);
-            this.monthCalendar1.MinDate = new System.DateTime(2025, 9, 16, 0, 0, 0, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 14;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
-            // 
             // doctor
             // 
             this.doctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -202,6 +106,104 @@
             this.label6.Size = new System.Drawing.Size(140, 20);
             this.label6.TabIndex = 15;
             this.label6.Text = "Selected Doctor: ";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(233, 91);
+            this.monthCalendar1.MaxDate = new System.DateTime(2026, 9, 16, 0, 0, 0, 0);
+            this.monthCalendar1.MinDate = new System.DateTime(2025, 9, 16, 0, 0, 0, 0);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 14;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(548, 91);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(258, 148);
+            this.listBox2.TabIndex = 13;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(675, 338);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 61);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(547, 338);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 61);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Request Appointment";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(542, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Available Times";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(228, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Date";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // time
+            // 
+            this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.time.Location = new System.Drawing.Point(675, 306);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(131, 26);
+            this.time.TabIndex = 7;
+            // 
+            // date
+            // 
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.date.Location = new System.Drawing.Point(675, 272);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(131, 26);
+            this.date.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(543, 309);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Selected Time: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(544, 275);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Selected Date: ";
             // 
             // UserDoctorList
             // 
