@@ -10,11 +10,17 @@ namespace Individual_Project
 
     internal class request
     {
-        int patientID;
-        int doctorID;
-        int schedulerID;
-        DateTime dateTime;
-        String reason;
+        private int patientID;
+        private int doctorID;
+        private int schedulerID;
+        private DateTime dateTime;
+        private String reason;
+
+
+        public void setPatientID(int pID)
+        {
+            patientID = pID;
+        }
 
         public void requestAppointment()
         {
@@ -24,19 +30,18 @@ namespace Individual_Project
             {
                 request myRequest = new request();
                 
-
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM wheelerRequest WHERE requestID = 1";
+                string sql = "SELECT * FROM wheelerRequest WHERE patientID = ";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql,
                 conn);
                 //cmd.Parameters.AddWithValue("@requestID", s);
                 MySqlDataReader myReader = cmd.ExecuteReader();
                 if (myReader.Read())
                 {
-                    patientID = myReader["patientID"].ToString();
-                    doctorID = myReader["doctorID"].ToString();
-                    textBox3.Text = myReader["ID"].ToString();
+                    patientID = int.Parse(myReader["patientID"].ToString());
+                    doctorID = int.Parse(myReader["doctorID"].ToString());
+                    
                 }
                 myReader.Close();
             }

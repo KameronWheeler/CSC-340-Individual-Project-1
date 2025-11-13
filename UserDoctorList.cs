@@ -12,7 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Individual_Project
 {
-    
+
     public partial class UserDoctorList : Form
     {
 
@@ -20,11 +20,15 @@ namespace Individual_Project
         public UserDoctorList()
         {
             InitializeComponent();
+
+
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -63,7 +67,7 @@ namespace Individual_Project
             ActiveForm.Hide();
             m.Show();
 
-         }
+        }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -74,75 +78,5 @@ namespace Individual_Project
     }
 
 
-    internal class request
-
-    {
-        private string[] doctors;
-        int patientID = -1;
-        int doctorID = -1;
-        int schedulerID;
-        DateTime dateTime;
-        String reason;
-        
-        public void requestAppointment()
-        { 
-            string id;
-
-            string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
-            {
-                request myRequest = new request();
-
-
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
-                string sql = "SELECT * FROM wheelerRequest WHERE requestID = 1";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql,
-                conn);
-                //cmd.Parameters.AddWithValue("@requestID", s);
-                MySqlDataReader myReader = cmd.ExecuteReader();
-                myReader.Close();
-                if (myReader.Read())
-                {
-                    patientID = int.Parse(myReader["patientID"].ToString());
-                    doctorID = int.Parse(myReader["doctorID"].ToString());
-                    id = myReader["ID"].ToString();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-        public string[] getDoctors() {
-            string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
-            {
-                string sql = "SELECT name FROM wheelerdoctor where doctorID =";
-                sql.Concat(doctorID.ToString());
-
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                MySqlDataReader myReader = cmd.ExecuteReader();
-                doctors = new string[myReader.FieldCount];
-                for (int i = 0; i<myReader.FieldCount; i++)
-                {
-                    doctors[i] = myReader["doctor"].ToString();
-                }
-                
-                myReader.Close();
-                
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            conn.Close();
-            Console.WriteLine("Done.");
-            return doctors;
-            }
-        }
-    }
+}
 
