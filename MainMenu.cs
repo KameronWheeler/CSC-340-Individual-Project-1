@@ -29,5 +29,25 @@ namespace Individual_Project
             u.Show();
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UserViewAppointments u = new UserViewAppointments();
+            ActiveForm.Hide();
+            u.Show();
+
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserMedicineRequest r = new UserMedicineRequest();
+            ActiveForm.Hide();
+            r.Show();
+        }
     }
 }

@@ -28,5 +28,12 @@ namespace Individual_Project
         {
 
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            MainMenu m = new MainMenu();
+            ActiveForm.Hide();
+            m.Show();
+        }
     }
 }

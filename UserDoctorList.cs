@@ -12,8 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Individual_Project
 {
+    
     public partial class UserDoctorList : Form
     {
+
+        private string[] doctors;
         public UserDoctorList()
         {
             InitializeComponent();
@@ -59,22 +62,30 @@ namespace Individual_Project
             MainMenu m = new MainMenu();
             ActiveForm.Hide();
             m.Show();
+
+         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            MainMenu m = new MainMenu();
+            ActiveForm.Hide();
+            m.Show();
         }
     }
 
 
     internal class request
+
     {
-        int patientID;
-        int doctorID;
+        private string[] doctors;
+        int patientID = -1;
+        int doctorID = -1;
         int schedulerID;
         DateTime dateTime;
         String reason;
-
+        
         public void requestAppointment()
-        {
-            int patientID = -1;
-            int doctorID = -1;
+        { 
             string id;
 
             string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340;port=3306;password=Maroon@21?;";
@@ -104,14 +115,25 @@ namespace Individual_Project
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+        public string[] getDoctors() {
+            string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340;port=3306;password=Maroon@21?;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
-                string sql = "SELECT name FROM wheelerDoctor where doctorID =";
+                string sql = "SELECT name FROM wheelerdoctor where doctorID =";
                 sql.Concat(doctorID.ToString());
 
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 MySqlDataReader myReader = cmd.ExecuteReader();
+                doctors = new string[myReader.FieldCount];
+                for (int i = 0; i<myReader.FieldCount; i++)
+                {
+                    doctors[i] = myReader["doctor"].ToString();
+                }
+                
                 myReader.Close();
+                
             }
             catch (Exception ex)
             {
@@ -119,6 +141,7 @@ namespace Individual_Project
             }
             conn.Close();
             Console.WriteLine("Done.");
+            return doctors;
             }
         }
     }

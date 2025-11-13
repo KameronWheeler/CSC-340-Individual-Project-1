@@ -78,7 +78,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 53);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Details";
+            this.button2.Text = "Delete Appointment";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // timeBox

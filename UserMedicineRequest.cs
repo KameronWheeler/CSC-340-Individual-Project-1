@@ -17,11 +17,7 @@ namespace Individual_Project
             InitializeComponent();
             panel1.Visible = true;
             panel2.Visible = false;
-            listBox1.Items.Add("Amoxicillin");
-            RxName.Text = "Amoxicillin";
-            DrName.Text = "Dr. Doe";
-            date.Text = "08/12/2025";
-            purpose.Text = "Ear Infection";
+        
 
 
         }
@@ -52,6 +48,18 @@ namespace Individual_Project
         {
             panel1.Visible = false;
             panel2.Visible = true;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ActiveForm.Hide();
+            MainMenu m = new MainMenu();
+            m.Show();
         }
     }
 }
