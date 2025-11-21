@@ -64,9 +64,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(4, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 29);
+            this.label1.Size = new System.Drawing.Size(76, 29);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Hello [USERNAME]";
+            this.label1.Text = "Hello ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -88,6 +89,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Medication Requests";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 

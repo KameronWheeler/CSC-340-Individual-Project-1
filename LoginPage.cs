@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace Individual_Project
         {
             InitializeComponent();
             loginButton.Enabled = false;
+            label1.Text = "";
+            this.AcceptButton = loginButton;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -46,6 +49,8 @@ namespace Individual_Project
 
         }
 
+        
+
         private void loginButton_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text;
@@ -58,7 +63,7 @@ namespace Individual_Project
             try
             {
                 conn.Open();
-                string sql = "SELECT id, username, permission_level FROM users WHERE username = @username AND password = @password";
+                string sql = "SELECT ID, username, privileges, password FROM wheeler_users WHERE username = @username AND password = @password";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
@@ -66,15 +71,51 @@ namespace Individual_Project
                 if (reader.Read())
                 {
                     // store important info
-                    SharedData.userID = Convert.ToInt32(reader["userID"]);
-                    if (password == reader["Password"].ToString())
+                    SharedData.userID = Convert.ToInt32(reader["ID"]);
+                    if (password == reader["password"].ToString())
                     {
                         // Successful login
                         SharedData.userName = reader["username"].ToString();
-                        SharedData.permissionLevel = Convert.ToInt32(reader["permission_level"]);
+                        SharedData.permissionLevel = Convert.ToInt32(reader["privileges"]);
+                        if(SharedData.permissionLevel == 1)
+                        {
+                            // Patient
+                            MainMenu userPage = new MainMenu();
+                            this.Hide();
+                            userPage.ShowDialog();
+                            this.Close();
+                        }
+                        else if(SharedData.permissionLevel == 2)
+                        {
+                            // Doctor
+                            DoctorMenu doctorPage = new DoctorMenu();
+                            this.Hide();
+                            doctorPage.ShowDialog();
+                            this.Close();
+                        }
+                        else if(SharedData.permissionLevel == 3)
+                        {
+                            // Clerk
+                            ClerkPayment clerkPayment = new ClerkPayment();
+                            this.Hide();
+                            clerkPayment.ShowDialog();
+                            this.Close();
+                        }
+                        else if (SharedData.
+                            permissionLevel == 4)
+                        {
+                            // Scheduler
+                           SchedulerMenu schedulerMenu = new SchedulerMenu();
+                            this.Hide();
+                            schedulerMenu.ShowDialog();
+                            this.Close();
+                        }
+                        else 
+                        {
+                            label1.Text = "Account error: please contact system administrator.";
+                        }
 
 
-                       
                     }
                     else
                     {

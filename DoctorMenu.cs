@@ -15,6 +15,7 @@ namespace Individual_Project
         public DoctorMenu()
         {
             InitializeComponent();
+            label1.Text = "Welcome " + SharedData.userName;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -32,7 +33,14 @@ namespace Individual_Project
             panel1.Visible = false;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DoctorMedicineRequest d = new DoctorMedicineRequest();
+            this.Hide();
+            d.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
