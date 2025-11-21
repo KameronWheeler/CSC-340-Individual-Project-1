@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.loginButton = new System.Windows.Forms.Button();
             this.LoginErrorLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.UseSystemPasswordChar = true;
             this.passwordTextBox.WordWrap = false;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // usernameLabel
             // 
@@ -81,6 +83,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Controls.Add(this.passwordLabel);
             this.panel1.Controls.Add(this.usernameLabel);
@@ -99,6 +102,7 @@
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // LoginErrorLabel
             // 
@@ -107,6 +111,16 @@
             this.LoginErrorLabel.Name = "LoginErrorLabel";
             this.LoginErrorLabel.Size = new System.Drawing.Size(0, 16);
             this.LoginErrorLabel.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(111, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // LoginPage
             // 
@@ -134,5 +148,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label LoginErrorLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

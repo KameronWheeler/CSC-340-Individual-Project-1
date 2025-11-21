@@ -99,7 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ClerkPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +174,7 @@
     <Compile Include="SchedulerViewSchedule.Designer.cs">
       <DependentUpon>SchedulerViewSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="SharedData.cs" />
     <Compile Include="UserDoctorList.cs">
       <SubType>Form</SubType>
     </Compile>
