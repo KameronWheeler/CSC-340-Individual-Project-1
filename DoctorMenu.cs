@@ -15,7 +15,7 @@ namespace Individual_Project
         public DoctorMenu()
         {
             InitializeComponent();
-            label1.Text = "Welcome " + SharedData.userName;
+            label1.Text = "Welcome " + SharedData.name;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

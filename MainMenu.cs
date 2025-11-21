@@ -15,6 +15,7 @@ namespace Individual_Project
         public MainMenu()
         {
             InitializeComponent();
+            label1.Text = "Welcome " + SharedData.name;
         }
 
         private void MainMenu_Load(object sender, EventArgs e)

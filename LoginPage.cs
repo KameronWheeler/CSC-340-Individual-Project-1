@@ -55,6 +55,7 @@ namespace Individual_Project
         {
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
+            string name = "";
 
             string connStr =
             "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -63,7 +64,7 @@ namespace Individual_Project
             try
             {
                 conn.Open();
-                string sql = "SELECT ID, username, privileges, password FROM wheeler_users WHERE username = @username AND password = @password";
+                string sql = "SELECT ID, username, privileges, password, name FROM wheeler_users WHERE username = @username AND password = @password";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
@@ -77,7 +78,8 @@ namespace Individual_Project
                         // Successful login
                         SharedData.userName = reader["username"].ToString();
                         SharedData.permissionLevel = Convert.ToInt32(reader["privileges"]);
-                        if(SharedData.permissionLevel == 1)
+                        SharedData.name = reader["name"].ToString();
+                        if (SharedData.permissionLevel == 1)
                         {
                             // Patient
                             MainMenu userPage = new MainMenu();

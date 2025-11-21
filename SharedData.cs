@@ -19,9 +19,9 @@ namespace Individual_Project
 
         public static int permissionLevel { get; set; }
 
-        
+        public static string name { get; set; }
 
 
 
-    }
+        }
 }

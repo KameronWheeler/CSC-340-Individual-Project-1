@@ -32,11 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rejectButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
-            this.RxPurpose = new System.Windows.Forms.TextBox();
             this.datePrescribed = new System.Windows.Forms.TextBox();
             this.MedicationName = new System.Windows.Forms.TextBox();
             this.patientName = new System.Windows.Forms.TextBox();
-            this.timeLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.medicationLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
@@ -52,6 +50,7 @@
             this.requestList.Name = "requestList";
             this.requestList.Size = new System.Drawing.Size(248, 292);
             this.requestList.TabIndex = 0;
+            this.requestList.SelectedIndexChanged += new System.EventHandler(this.requestList_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -83,15 +82,6 @@
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
             // 
-            // RxPurpose
-            // 
-            this.RxPurpose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.RxPurpose.Location = new System.Drawing.Point(399, 204);
-            this.RxPurpose.Margin = new System.Windows.Forms.Padding(4);
-            this.RxPurpose.Name = "RxPurpose";
-            this.RxPurpose.Size = new System.Drawing.Size(209, 22);
-            this.RxPurpose.TabIndex = 21;
-            // 
             // datePrescribed
             // 
             this.datePrescribed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -118,16 +108,6 @@
             this.patientName.Name = "patientName";
             this.patientName.Size = new System.Drawing.Size(209, 22);
             this.patientName.TabIndex = 18;
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(327, 207);
-            this.timeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(64, 16);
-            this.timeLabel.TabIndex = 17;
-            this.timeLabel.Text = "Purpose: ";
             // 
             // dateLabel
             // 
@@ -163,7 +143,7 @@
             // numRefills
             // 
             this.numRefills.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.numRefills.Location = new System.Drawing.Point(399, 234);
+            this.numRefills.Location = new System.Drawing.Point(399, 204);
             this.numRefills.Margin = new System.Windows.Forms.Padding(4);
             this.numRefills.Name = "numRefills";
             this.numRefills.Size = new System.Drawing.Size(209, 22);
@@ -172,7 +152,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(288, 237);
+            this.label2.Location = new System.Drawing.Point(288, 207);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 16);
@@ -188,11 +168,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rejectButton);
             this.Controls.Add(this.acceptButton);
-            this.Controls.Add(this.RxPurpose);
             this.Controls.Add(this.datePrescribed);
             this.Controls.Add(this.MedicationName);
             this.Controls.Add(this.patientName);
-            this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.medicationLabel);
             this.Controls.Add(this.patientNameLabel);
@@ -212,11 +190,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button rejectButton;
         private System.Windows.Forms.Button acceptButton;
-        private System.Windows.Forms.TextBox RxPurpose;
         private System.Windows.Forms.TextBox datePrescribed;
         private System.Windows.Forms.TextBox MedicationName;
         private System.Windows.Forms.TextBox patientName;
-        private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label medicationLabel;
         private System.Windows.Forms.Label patientNameLabel;

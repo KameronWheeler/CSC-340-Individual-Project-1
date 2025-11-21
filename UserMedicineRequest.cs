@@ -41,7 +41,9 @@ namespace Individual_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainMenu main = new MainMenu();
+            main.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,9 +59,14 @@ namespace Individual_Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ActiveForm.Hide();
+            this.Hide();
             MainMenu m = new MainMenu();
-            m.Show();
+            m.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
