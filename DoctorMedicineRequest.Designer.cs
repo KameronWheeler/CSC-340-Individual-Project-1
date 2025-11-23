@@ -40,6 +40,7 @@
             this.patientNameLabel = new System.Windows.Forms.Label();
             this.numRefills = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // requestList
@@ -65,22 +66,24 @@
             // rejectButton
             // 
             this.rejectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.rejectButton.Location = new System.Drawing.Point(464, 312);
+            this.rejectButton.Location = new System.Drawing.Point(464, 267);
             this.rejectButton.Name = "rejectButton";
             this.rejectButton.Size = new System.Drawing.Size(119, 37);
             this.rejectButton.TabIndex = 23;
             this.rejectButton.Text = "Reject";
             this.rejectButton.UseVisualStyleBackColor = false;
+            this.rejectButton.Click += new System.EventHandler(this.rejectButton_Click);
             // 
             // acceptButton
             // 
             this.acceptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.acceptButton.Location = new System.Drawing.Point(288, 312);
+            this.acceptButton.Location = new System.Drawing.Point(288, 267);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(119, 37);
             this.acceptButton.TabIndex = 22;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // datePrescribed
             // 
@@ -159,11 +162,22 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Number of refills";
             // 
+            // menuButton
+            // 
+            this.menuButton.Location = new System.Drawing.Point(291, 344);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(292, 44);
+            this.menuButton.TabIndex = 26;
+            this.menuButton.Text = "Return to menu";
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DoctorMedicineRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuButton);
             this.Controls.Add(this.numRefills);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rejectButton);
@@ -198,5 +212,6 @@
         private System.Windows.Forms.Label patientNameLabel;
         private System.Windows.Forms.TextBox numRefills;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button menuButton;
     }
 }

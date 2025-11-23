@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -45,18 +44,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(10, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(227, 260);
-            this.listBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -169,6 +160,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.listView1);
             this.panel1.Controls.Add(this.purpose);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.date);
@@ -180,7 +172,6 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.listBox1);
             this.panel1.Location = new System.Drawing.Point(4, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 349);
@@ -229,6 +220,16 @@
             this.panel2.Size = new System.Drawing.Size(329, 161);
             this.panel2.TabIndex = 24;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(8, 61);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(236, 260);
+            this.listView1.TabIndex = 20;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // UserMedicineRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,8 +249,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -266,5 +265,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ListView listView1;
     }
 }

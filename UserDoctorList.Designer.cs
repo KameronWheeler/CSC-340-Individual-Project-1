@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.doctorsList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.doctor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,15 +56,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Doctor";
             // 
-            // listBox1
+            // doctorsList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 91);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(199, 324);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.doctorsList.FormattingEnabled = true;
+            this.doctorsList.ItemHeight = 16;
+            this.doctorsList.Location = new System.Drawing.Point(12, 91);
+            this.doctorsList.Name = "doctorsList";
+            this.doctorsList.Size = new System.Drawing.Size(199, 324);
+            this.doctorsList.TabIndex = 1;
+            this.doctorsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.date);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.doctorsList);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -222,7 +222,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox doctorsList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

@@ -16,10 +16,12 @@ namespace Individual_Project
 
         public DoctorMedicineRequest()
         {
-            
-            
+
+
             InitializeComponent();
-            
+            acceptButton.Enabled = false;
+            rejectButton.Enabled = false;
+
         }
 
         private void drNameLabel_Click(object sender, EventArgs e)
@@ -42,15 +44,15 @@ namespace Individual_Project
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@doctorID", SharedData.userID);
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-                
+
 
                 while (rdr.Read())
                 {
                     requestList.Items.Add(int.Parse(rdr["requestID"].ToString()));
-                    
+
                 }
-              
-                
+
+
                 rdr.Close();
 
             }
@@ -58,7 +60,7 @@ namespace Individual_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
             try
             {
                 string sql = "SELECT name FROM wheeler_users WHERE ID = '" + patientID + "';";
@@ -66,7 +68,7 @@ namespace Individual_Project
                 cmd.Parameters.AddWithValue("@doctorID", SharedData.userID);
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
-                
+
                 rdr.Close();
                 conn.Close();
             }
@@ -79,6 +81,8 @@ namespace Individual_Project
 
         private void requestList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            acceptButton.Enabled = true;
+            rejectButton.Enabled = true;
             var value = "";
             if (requestList.SelectedIndex >= 0)
             {
@@ -102,11 +106,11 @@ namespace Individual_Project
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
 
-                if(rdr.Read())
+                if (rdr.Read())
                 {
                     patientName.Text = rdr["name"].ToString();
                     MedicationName.Text = rdr["medicine"].ToString();
-                    datePrescribed.Text = rdr["datePrescribed"].ToString().Substring(0,11);
+                    datePrescribed.Text = rdr["datePrescribed"].ToString().Substring(0, 11);
                     numRefills.Text = rdr["number_Refills"].ToString();
 
                 }
@@ -120,6 +124,53 @@ namespace Individual_Project
                 MessageBox.Show(ex.ToString());
             }
             conn.Close();
+        }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+            String connString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
+            try
+            {
+                conn.Open();
+                String sql = "UPDATE wheeler_prescriptions SET approved = TRUE, requested = false WHERE requestID = @requestID;";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@requestID", requestList.SelectedItem.ToString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Request Approved.");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void rejectButton_Click(object sender, EventArgs e)
+        {
+            String connString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
+            try
+            {
+                conn.Open();
+                String sql = "UPDATE wheeler_prescriptions SET rejected = TRUE, requested = false WHERE requestID = @requestID;";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@requestID", requestList.SelectedItem.ToString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Request Rejected.");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Application.OpenForms["DoctorMenu"].Show();
+            
         }
     }
 }

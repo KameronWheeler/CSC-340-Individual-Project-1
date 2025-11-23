@@ -50,6 +50,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(272, 324);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -70,6 +71,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Main Menu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -80,6 +82,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Delete Appointment";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // timeBox
             // 
