@@ -15,6 +15,31 @@ namespace Individual_Project
         public SchedulerMenu()
         {
             InitializeComponent();
+            label1.Text = "Welcome " + SharedData.name;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SchedulerViewSchedule sv = new SchedulerViewSchedule();
+            this.Hide();
+            sv.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SchedulerPage sv = new SchedulerPage();
+            this.Hide();
+            sv.ShowDialog();
+        }
+
+        private void SchedulerMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
