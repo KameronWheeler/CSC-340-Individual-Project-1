@@ -178,6 +178,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Name = "UserViewAppointments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserViewAppointments";
             this.Load += new System.EventHandler(this.UserViewAppointments_Load);
             this.ResumeLayout(false);

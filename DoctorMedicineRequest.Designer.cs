@@ -191,6 +191,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.requestList);
             this.Name = "DoctorMedicineRequest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorMedicineRequest";
             this.Load += new System.EventHandler(this.DoctorMedicineRequest_Load);
             this.ResumeLayout(false);

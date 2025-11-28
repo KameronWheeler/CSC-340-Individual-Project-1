@@ -177,6 +177,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PaymentInformation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaymentInformation";
             this.Load += new System.EventHandler(this.PaymentInformation_Load);
             this.ResumeLayout(false);

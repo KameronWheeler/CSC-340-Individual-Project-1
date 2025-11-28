@@ -190,6 +190,7 @@
             this.Controls.Add(this.requestsListBox);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SchedulerConfirmation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SchedulerConfirmation";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

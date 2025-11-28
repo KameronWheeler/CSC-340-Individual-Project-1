@@ -39,8 +39,7 @@ namespace Individual_Project
 
                 while (rdr.Read())
                 {
-                    listBox1.Items.Add(rdr["name"].ToString() + " - " + DateTime.Parse(rdr["time"].ToString().Substring (11,17)));
-                    
+                    listBox1.Items.Add(rdr["name"].ToString() + " - " + DateTime.Parse(rdr["time"].ToString()));
                 }
 
                 rdr.Close();

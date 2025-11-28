@@ -61,20 +61,7 @@ namespace Individual_Project
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -175,6 +175,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.requestList);
             this.Name = "ClerkProcessPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClerkProcessPayment";
             this.Load += new System.EventHandler(this.ClerkProcessPayment_Load);
             this.ResumeLayout(false);

@@ -22,11 +22,6 @@ namespace Individual_Project
             this.AcceptButton = loginButton;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             anyTextBox_TextChanged(sender, e);
@@ -146,9 +141,5 @@ namespace Individual_Project
             anyTextBox_TextChanged(sender, e);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
