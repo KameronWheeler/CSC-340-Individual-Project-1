@@ -16,5 +16,21 @@ namespace Individual_Project
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClerkProcessPayment cp = new ClerkProcessPayment();
+            this.Hide();
+            cp.ShowDialog();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SharedData.ClearData();
+            LoginPage l = new LoginPage();
+            l.ShowDialog();
+            this.Close();
+        }
     }
 }

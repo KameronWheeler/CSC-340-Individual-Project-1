@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,19 +19,11 @@ namespace Individual_Project
             label1.Text = "Welcome " + SharedData.name;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button4_Click(object sender, EventArgs e)//view appointments
         {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
+            DoctorViewSchedule d = new DoctorViewSchedule();
+            this.Hide();
+            d.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,9 +33,13 @@ namespace Individual_Project
             d.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            SharedData.ClearData();
+            LoginPage l = new LoginPage();
+            l.Show();
+            this.Hide();
+            this.Close();
         }
     }
 }

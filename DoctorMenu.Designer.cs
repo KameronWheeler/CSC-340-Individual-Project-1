@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,6 @@
             this.label1.Size = new System.Drawing.Size(76, 29);
             this.label1.TabIndex = 9;
             this.label1.Text = "Hello ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button2
             // 
@@ -81,6 +81,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label2);
@@ -89,7 +90,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(787, 438);
             this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(529, 6);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(251, 45);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "Logout";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // DoctorMenu
             // 
@@ -113,5 +124,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
     }
 }

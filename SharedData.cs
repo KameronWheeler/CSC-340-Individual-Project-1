@@ -21,7 +21,14 @@ namespace Individual_Project
 
         public static string name { get; set; }
 
-
+        public static void ClearData()
+        {
+            mySharedString = string.Empty;
+            userID = -1;
+            userName = string.Empty;
+            permissionLevel = -1;
+            name = string.Empty;
+        }
 
         }
 }

@@ -41,16 +41,13 @@ namespace Individual_Project
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-
+            
         }
-
-        
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
-            string name = "";
 
             string connStr =
             "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -63,6 +60,7 @@ namespace Individual_Project
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
+                cmd.Prepare();
                 MySql.Data.MySqlClient.MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {

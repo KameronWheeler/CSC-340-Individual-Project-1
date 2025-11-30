@@ -33,12 +33,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.billPay = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-            this.button1.Location = new System.Drawing.Point(295, 165);
+            this.button1.Location = new System.Drawing.Point(295, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 54);
             this.button1.TabIndex = 0;
@@ -49,7 +51,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-            this.button2.Location = new System.Drawing.Point(295, 285);
+            this.button2.Location = new System.Drawing.Point(295, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(211, 54);
             this.button2.TabIndex = 1;
@@ -60,7 +62,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-            this.button3.Location = new System.Drawing.Point(295, 225);
+            this.button3.Location = new System.Drawing.Point(295, 228);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(211, 54);
             this.button3.TabIndex = 2;
@@ -88,11 +90,35 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "EKU Hospital Management System";
             // 
+            // billPay
+            // 
+            this.billPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
+            this.billPay.Location = new System.Drawing.Point(295, 348);
+            this.billPay.Name = "billPay";
+            this.billPay.Size = new System.Drawing.Size(211, 54);
+            this.billPay.TabIndex = 5;
+            this.billPay.Text = "Pay Bills";
+            this.billPay.UseVisualStyleBackColor = true;
+            this.billPay.Click += new System.EventHandler(this.billPay_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(518, 36);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(251, 45);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Logout";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.billPay);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
@@ -114,5 +140,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button billPay;
+        private System.Windows.Forms.Button button4;
     }
 }

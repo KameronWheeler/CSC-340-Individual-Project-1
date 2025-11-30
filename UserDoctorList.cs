@@ -16,7 +16,7 @@ namespace Individual_Project
     public partial class UserDoctorList : Form
     {
         List<int> doctorIDs = new List<int>();
-        int appointmentID = 0;
+        int scheduleID = 0;
         public UserDoctorList()
         {
             InitializeComponent();
@@ -141,7 +141,7 @@ namespace Individual_Project
             {
                 conn.Open();
 
-                string sql = "SELECT startTime, appointmentID FROM wheeler_schedule WHERE doctorID = @doctorID AND isBooked = FALSE AND date = @selectedDate;";
+                string sql = "SELECT startTime, scheduleID FROM wheeler_schedule WHERE doctorID = @doctorID AND isBooked = FALSE AND date = @selectedDate;";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@doctorID", doctorIDs[doctorsList.SelectedIndex]);
                 // Use DATE format for MySQL DATE type
@@ -159,7 +159,7 @@ namespace Individual_Project
                         // Format as HH:mm - HH:mm
                         string timeSlot = string.Format("{0:hh\\:mm} - {1:hh\\:mm}", startTime, endTime);
 
-                        appointmentID = Convert.ToInt32(rdr["appointmentID"]);
+                        scheduleID = Convert.ToInt32(rdr["scheduleID"]);
 
                         listBox2.Items.Add(timeSlot);
                         hasSlots = true;
@@ -231,16 +231,18 @@ namespace Individual_Project
                         int selectedDoctorID = doctorIDs[doctorsList.SelectedIndex];
 
                         // Insert into wheelerrequest with DATE and TIME types
-                        cmd.CommandText = "INSERT INTO wheelerrequest (appointmentID,patientID, doctorID, date, time, confirmation) " +
-                            "VALUES (@appointmentID, @patientID, @doctorID, @date, @startTime, FALSE);";
+                        cmd.CommandText = "INSERT INTO wheelerrequest (appointmentID,patientID, doctorID, date, time, reason, confirmation) " +
+                            "VALUES (@appointmentID, @patientID, @doctorID, @date, @startTime, @reason, FALSE);";
 
                         cmd.Parameters.AddWithValue("@patientID", SharedData.userID);
                         cmd.Parameters.AddWithValue("@doctorID", selectedDoctorID);
-                        cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
+                        cmd.Parameters.AddWithValue("@appointmentID", scheduleID);
+                        cmd.Parameters.AddWithValue("@reason", textBox1.Text);
                         // Use DATE format
                         cmd.Parameters.AddWithValue("@date", selectedDate.ToString("yyyy-MM-dd"));
                         // Use TIME format
                         cmd.Parameters.AddWithValue("@startTime", startTime.ToString(@"hh\:mm\:ss"));
+                        cmd.Prepare();
                         
                         Console.WriteLine("Inserting - Date: " + selectedDate.ToString("yyyy-MM-dd") + ", Time: " + startTime.ToString(@"hh\:mm\:ss"));
 
@@ -288,6 +290,11 @@ namespace Individual_Project
             MainMenu m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
             ActiveForm.Hide();
             m.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

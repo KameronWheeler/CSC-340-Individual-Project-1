@@ -43,6 +43,8 @@
             this.date = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,12 +64,14 @@
             this.doctorsList.ItemHeight = 16;
             this.doctorsList.Location = new System.Drawing.Point(12, 91);
             this.doctorsList.Name = "doctorsList";
-            this.doctorsList.Size = new System.Drawing.Size(199, 324);
+            this.doctorsList.Size = new System.Drawing.Size(199, 356);
             this.doctorsList.TabIndex = 1;
             this.doctorsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.doctor);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.monthCalendar1);
@@ -87,6 +91,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(840, 468);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // doctor
             // 
@@ -203,6 +208,25 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected Date: ";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(233, 338);
+            this.textBox1.MaxLength = 250;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(262, 112);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(228, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Purpose of visit: ";
+            // 
             // UserDoctorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,5 +259,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox doctor;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

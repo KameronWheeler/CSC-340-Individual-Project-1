@@ -30,22 +30,23 @@
         {
             this.rejectButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
-            this.patientName = new System.Windows.Forms.TextBox();
+            this.patientNameBox = new System.Windows.Forms.TextBox();
             this.patientNameLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.requestList = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.appointmentDateBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.amountDueBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.amountPaidBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.MainMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rejectButton
             // 
             this.rejectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.rejectButton.Location = new System.Drawing.Point(475, 273);
+            this.rejectButton.Location = new System.Drawing.Point(475, 224);
             this.rejectButton.Name = "rejectButton";
             this.rejectButton.Size = new System.Drawing.Size(119, 37);
             this.rejectButton.TabIndex = 37;
@@ -55,21 +56,21 @@
             // acceptButton
             // 
             this.acceptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.acceptButton.Location = new System.Drawing.Point(299, 273);
+            this.acceptButton.Location = new System.Drawing.Point(299, 224);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(119, 37);
             this.acceptButton.TabIndex = 36;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
             // 
-            // patientName
+            // patientNameBox
             // 
-            this.patientName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.patientName.Location = new System.Drawing.Point(410, 75);
-            this.patientName.Margin = new System.Windows.Forms.Padding(4);
-            this.patientName.Name = "patientName";
-            this.patientName.Size = new System.Drawing.Size(209, 22);
-            this.patientName.TabIndex = 32;
+            this.patientNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.patientNameBox.Location = new System.Drawing.Point(410, 75);
+            this.patientNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.patientNameBox.Name = "patientNameBox";
+            this.patientNameBox.Size = new System.Drawing.Size(209, 22);
+            this.patientNameBox.TabIndex = 32;
             // 
             // patientNameLabel
             // 
@@ -99,15 +100,16 @@
             this.requestList.Name = "requestList";
             this.requestList.Size = new System.Drawing.Size(248, 292);
             this.requestList.TabIndex = 26;
+            this.requestList.SelectedIndexChanged += new System.EventHandler(this.requestList_SelectedIndexChanged);
             // 
-            // textBox1
+            // appointmentDateBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox1.Location = new System.Drawing.Point(410, 105);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 22);
-            this.textBox1.TabIndex = 39;
+            this.appointmentDateBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.appointmentDateBox.Location = new System.Drawing.Point(410, 105);
+            this.appointmentDateBox.Margin = new System.Windows.Forms.Padding(4);
+            this.appointmentDateBox.Name = "appointmentDateBox";
+            this.appointmentDateBox.Size = new System.Drawing.Size(209, 22);
+            this.appointmentDateBox.TabIndex = 39;
             // 
             // label2
             // 
@@ -119,58 +121,72 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Date:";
             // 
-            // textBox2
+            // amountDueBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox2.Location = new System.Drawing.Point(410, 135);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 22);
-            this.textBox2.TabIndex = 41;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(296, 138);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 16);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Time:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox3.Location = new System.Drawing.Point(410, 165);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 22);
-            this.textBox3.TabIndex = 43;
+            this.amountDueBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.amountDueBox.Location = new System.Drawing.Point(410, 135);
+            this.amountDueBox.Margin = new System.Windows.Forms.Padding(4);
+            this.amountDueBox.Name = "amountDueBox";
+            this.amountDueBox.Size = new System.Drawing.Size(209, 22);
+            this.amountDueBox.TabIndex = 43;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(296, 168);
+            this.label4.Location = new System.Drawing.Point(296, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
+            this.label4.Size = new System.Drawing.Size(83, 16);
             this.label4.TabIndex = 42;
-            this.label4.Text = "Amount:";
+            this.label4.Text = "Amount Due:";
+            // 
+            // amountPaidBox
+            // 
+            this.amountPaidBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.amountPaidBox.Location = new System.Drawing.Point(410, 165);
+            this.amountPaidBox.Margin = new System.Windows.Forms.Padding(4);
+            this.amountPaidBox.Name = "amountPaidBox";
+            this.amountPaidBox.Size = new System.Drawing.Size(209, 22);
+            this.amountPaidBox.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(296, 168);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 16);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Amount Paid:";
+            // 
+            // MainMenuButton
+            // 
+            this.MainMenuButton.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.MainMenuButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MainMenuButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MainMenuButton.Location = new System.Drawing.Point(299, 298);
+            this.MainMenuButton.Name = "MainMenuButton";
+            this.MainMenuButton.Size = new System.Drawing.Size(295, 37);
+            this.MainMenuButton.TabIndex = 46;
+            this.MainMenuButton.Text = "Main Menu";
+            this.MainMenuButton.UseVisualStyleBackColor = false;
+            this.MainMenuButton.Click += new System.EventHandler(this.MainMenuButton_Click);
             // 
             // ClerkProcessPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
+            this.ClientSize = new System.Drawing.Size(640, 360);
+            this.Controls.Add(this.MainMenuButton);
+            this.Controls.Add(this.amountPaidBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.amountDueBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.appointmentDateBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rejectButton);
             this.Controls.Add(this.acceptButton);
-            this.Controls.Add(this.patientName);
+            this.Controls.Add(this.patientNameBox);
             this.Controls.Add(this.patientNameLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.requestList);
@@ -186,15 +202,16 @@
         #endregion
         private System.Windows.Forms.Button rejectButton;
         private System.Windows.Forms.Button acceptButton;
-        private System.Windows.Forms.TextBox patientName;
+        private System.Windows.Forms.TextBox patientNameBox;
         private System.Windows.Forms.Label patientNameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox requestList;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox appointmentDateBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox amountDueBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox amountPaidBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button MainMenuButton;
     }
 }

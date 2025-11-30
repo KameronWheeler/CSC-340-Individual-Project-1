@@ -49,5 +49,21 @@ namespace Individual_Project
             r.ShowDialog();
             
         }
+
+        private void billPay_Click(object sender, EventArgs e)
+        {
+            PayBills pb = new PayBills();
+            this.Hide();
+            pb.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SharedData.ClearData();
+            LoginPage l = new LoginPage();
+            l.ShowDialog();
+            this.Close();
+            
+        }
     }
 }

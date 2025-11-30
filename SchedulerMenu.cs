@@ -37,5 +37,12 @@ namespace Individual_Project
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SharedData.ClearData();
+            LoginPage l = new LoginPage();
+            l.ShowDialog();
+            this.Close();
+        }
     }
 }
