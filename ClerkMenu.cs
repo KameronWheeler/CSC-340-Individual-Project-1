@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Individual_Project
 {
-    public partial class ClerkPayment : Form
+    public partial class ClerkMenu : Form
     {
-        public ClerkPayment()
+        public ClerkMenu()
         {
             InitializeComponent();
+            NameLabel.Text = ("Welcome, " + SharedData.name.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ClerkProcessPayment cp = new ClerkProcessPayment();
-            this.Hide();
+            
             cp.ShowDialog();
 
         }
@@ -31,6 +32,24 @@ namespace Individual_Project
             LoginPage l = new LoginPage();
             l.ShowDialog();
             this.Close();
+        }
+
+        private void ClerkPayment_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClerkViewHistoricalBills hb = new ClerkViewHistoricalBills();
+            hb.ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClerkViewOpenBills ob = new ClerkViewOpenBills();
+            ob.ShowDialog();
         }
     }
 }

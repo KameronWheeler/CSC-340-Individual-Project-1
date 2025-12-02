@@ -12,7 +12,7 @@ namespace Individual_Project
 {
     public partial class DoctorMedicineRequest : Form
     {
-
+        List<Prescription> medicineRequests = new List<Prescription>();
 
         public DoctorMedicineRequest()
         {
@@ -28,19 +28,20 @@ namespace Individual_Project
         {
 
         }
-
-        private void DoctorMedicineRequest_Load(object sender, EventArgs e)
+        private void reload()
         {
+            requestList.Items.Clear();
+            medicineRequests.Clear();
             int doctorID = SharedData.userID;
             //stored locally
-            int patientID = 0;
+            
             string connStr =
             "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {
                 conn.Open();
-                String sql = "SELECT * FROM wheeler_prescriptions WHERE doctorID = '" + SharedData.userID + "' AND requested = 1;";
+                String sql = "SELECT p.*, u.name as name FROM wheeler_prescriptions p INNER JOIN wheeler_users u ON p.patientID = u.ID WHERE doctorID = '" + SharedData.userID + "' AND requested = 1;";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@doctorID", SharedData.userID);
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
@@ -48,82 +49,40 @@ namespace Individual_Project
 
                 while (rdr.Read())
                 {
-                    requestList.Items.Add(int.Parse(rdr["requestID"].ToString()));
-
+                    requestList.Items.Add(rdr["name"].ToString());
+                    medicineRequests.Add(new Prescription(int.Parse(rdr["requestID"].ToString()),rdr["medicine"].ToString(), 
+                        rdr["name"].ToString(), DateTime.Parse(rdr["datePrescribed"].ToString()), int.Parse(rdr["number_Refills"].ToString())));
+                   
                 }
 
 
                 rdr.Close();
 
+
+                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
 
-            try
-            {
-                string sql = "SELECT name FROM wheeler_users WHERE ID = '" + patientID + "';";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@doctorID", SharedData.userID);
-                MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-
-
-                rdr.Close();
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                conn.Close();
-            }
+        
+        }
+        private void DoctorMedicineRequest_Load(object sender, EventArgs e)
+        {
+            reload();
         }
 
         private void requestList_SelectedIndexChanged(object sender, EventArgs e)
         {
             acceptButton.Enabled = true;
             rejectButton.Enabled = true;
-            var value = "";
-            if (requestList.SelectedIndex >= 0)
-            {
-                value = requestList.Items[requestList.SelectedIndex].ToString();
-                // Proceed with parsing or SQL query
-            }
-
-
-            Console.WriteLine("current index: " + value);
-            string connStr =
-            "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-                String sql = "SELECT p.requestID, p.doctorID, p.medicine, p.datePrescribed, p.number_Refills, " +
-                    "u.name FROM wheeler_prescriptions p inner JOIN wheeler_users u ON p.doctorID = u.ID WHERE p.requested = 1 " +
-                    "AND requestID = @requestID;";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@requestID", value);
-                MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-
-
-                if (rdr.Read())
-                {
-                    patientName.Text = rdr["name"].ToString();
-                    MedicationName.Text = rdr["medicine"].ToString();
-                    datePrescribed.Text = rdr["datePrescribed"].ToString().Substring(0, 11);
-                    numRefills.Text = rdr["number_Refills"].ToString();
-
-                }
-
-
-                rdr.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            conn.Close();
+            var selected = medicineRequests[requestList.SelectedIndex];
+            patientName.Text = selected.patientName;
+            datePrescribed.Text = selected.datePrescribed.ToShortDateString();
+            MedicationName.Text = selected.name;
+            numRefills.Text = selected.numRefills.ToString();
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -135,10 +94,11 @@ namespace Individual_Project
                 conn.Open();
                 String sql = "UPDATE wheeler_prescriptions SET approved = TRUE, requested = false WHERE requestID = @requestID;";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@requestID", requestList.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@requestID", medicineRequests[requestList.SelectedIndex].requestID);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Request Approved.");
                 conn.Close();
+                reload();
             }
             catch (Exception ex)
             {
@@ -155,10 +115,11 @@ namespace Individual_Project
                 conn.Open();
                 String sql = "UPDATE wheeler_prescriptions SET rejected = TRUE, requested = false WHERE requestID = @requestID;";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@requestID", requestList.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@requestID", medicineRequests[requestList.SelectedIndex].requestID);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Request Rejected.");
                 conn.Close();
+                reload();
             }
             catch (Exception ex)
             {
@@ -171,6 +132,24 @@ namespace Individual_Project
             this.Hide();
             Application.OpenForms["DoctorMenu"].Show();
             
+        }
+
+        public class Prescription
+        {
+            public int requestID {  get; set; }
+            public string name {  get; set; }
+            public string patientName { get; set; }
+            public DateTime datePrescribed { get; set; }
+            public int numRefills { get; set; }
+
+            public Prescription(int requestID, string name, string patientName, DateTime prescribed, int numRefills)
+            {
+                this.requestID = requestID;
+                this.name = name;
+                this.patientName = patientName;
+                this.datePrescribed = prescribed;
+                this.numRefills = numRefills;
+            }
         }
     }
 }

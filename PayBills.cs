@@ -26,7 +26,7 @@ namespace Individual_Project
             string connStr = "server = csitmariadb.eku.edu; user = student; database = csc340_db; port = 3306; password = Maroon@21?;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT * FROM wheeler_bills WHERE paymentAttempt = 0 AND patientID = @patientID";
+            string sql = "SELECT * FROM wheeler_bills WHERE paymentAttempt = 0 AND patientID = @patientID AND paid = FALSE";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@patientID", SharedData.userID);
             MySqlDataReader rdr = cmd.ExecuteReader();
@@ -96,12 +96,14 @@ namespace Individual_Project
                     StringBuilder paymentHistory = new StringBuilder();
                     while (reader.Read())
                     {
+                        paymentHistory.Clear();
                         DateTime paymentDate = reader.GetDateTime("date");
                         decimal amountPaid = reader.GetDecimal("cost");
                         paymentHistory.AppendLine($"{paymentDate.ToShortDateString()}, {amountPaid:C}");
+                        historyView.Items.Add(paymentHistory.ToString());
                     }
-                    historyView.Items.Clear();
-                    historyView.Items.Add(paymentHistory.ToString());
+                   
+                    
                 }
             }
             conn.Close();

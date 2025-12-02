@@ -26,18 +26,17 @@ namespace Individual_Project
         private void button1_Click(object sender, EventArgs e)
         {
             UserDoctorList u = new UserDoctorList();
-            this.Hide();
+            
             u.ShowDialog();
             
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             UserViewAppointments u = new UserViewAppointments();
-            this.Hide();
             u.ShowDialog();
             
-
         }
 
        
@@ -45,7 +44,7 @@ namespace Individual_Project
         private void button2_Click(object sender, EventArgs e)
         {
             UserMedicineRequest r = new UserMedicineRequest();
-            this.Hide();
+            
             r.ShowDialog();
             
         }
@@ -53,8 +52,9 @@ namespace Individual_Project
         private void billPay_Click(object sender, EventArgs e)
         {
             PayBills pb = new PayBills();
-            this.Hide();
+            
             pb.ShowDialog();
+           
         }
 
         private void button4_Click(object sender, EventArgs e)

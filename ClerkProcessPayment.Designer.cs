@@ -52,6 +52,7 @@
             this.rejectButton.TabIndex = 37;
             this.rejectButton.Text = "Reject";
             this.rejectButton.UseVisualStyleBackColor = false;
+            this.rejectButton.Click += new System.EventHandler(this.rejectButton_Click);
             // 
             // acceptButton
             // 
@@ -62,6 +63,7 @@
             this.acceptButton.TabIndex = 36;
             this.acceptButton.Text = "Accept";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // patientNameBox
             // 

@@ -60,6 +60,17 @@ namespace Individual_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms.OfType<DoctorMenu>().First().Show();
+            this.Close();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
             listBox1.Items.Clear();
             DateTime selectedDate = monthCalendar1.SelectionStart.Date;
             //code to update list box by date
@@ -78,7 +89,7 @@ namespace Individual_Project
 
                 while (rdr.Read())
                 {
-                    String dateString = DateTime.Parse(rdr["date"].ToString().Substring(0,11)).ToString("yyyy/MM/dd");
+                    String dateString = DateTime.Parse(rdr["date"].ToString()).ToString().Substring(0, 10);
                     String timeString = DateTime.Parse(rdr["time"].ToString()).ToString("HH:mm");
                     listBox1.Items.Add(dateString + " - " + timeString);
                     Console.WriteLine(rdr["requestID"]);
@@ -91,12 +102,6 @@ namespace Individual_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.OpenForms.OfType<DoctorMenu>().First().Show();
-            this.Close();
         }
     }
 }

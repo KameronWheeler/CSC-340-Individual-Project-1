@@ -30,8 +30,8 @@ namespace Individual_Project
             try
             {
                 conn.Open();
-                string sql = "SELECT DISTINCT doctorList.name as name, doctorList.doctorID as doctorID FROM wheelerrequest request " +
-                "inner join wheelerdoctor doctorList on request.doctorID = doctorList.doctorID WHERE request.patientID = @patientID;";
+                string sql = "SELECT DISTINCT doctorList.name as name, request.doctorID as doctorID FROM wheelerrequest request " +
+                "inner join wheeler_users doctorList on request.doctorID = doctorList.ID WHERE request.patientID = @patientID;";
 
                 using (var cmd = new MySqlCommand(sql, conn))
                 {
@@ -287,9 +287,12 @@ namespace Individual_Project
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            MainMenu m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
-            ActiveForm.Hide();
-            m.Show();
+            var m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
+            if (m != null)
+            {
+                m.Show();
+            }
+            this.Close();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

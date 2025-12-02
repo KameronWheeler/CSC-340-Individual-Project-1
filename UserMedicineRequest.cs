@@ -12,12 +12,15 @@ namespace Individual_Project
 {
     public partial class UserMedicineRequest : Form
     {
+        List<Medicine> medicines;
         public UserMedicineRequest()
         {
+
+
             InitializeComponent();
             panel1.Visible = true;
             panel2.Visible = false;
-            listView1.View = View.List;
+
 
 
 
@@ -25,20 +28,24 @@ namespace Individual_Project
 
         private void UserMedicineRequest_Load(object sender, EventArgs e)
         {
+            medicines = new List<Medicine>();
             String connString = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
             MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
             try
             {
                 conn.Open();
-                String sql = "select * FROM wheeler_prescriptions WHERE patientID = @userID;";
+                String sql = "select p.*, u.name as name FROM wheeler_prescriptions p inner join wheeler_users u ON p.doctorID = u.ID WHERE patientID = @userID;";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@userID", SharedData.userID);
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    ListViewItem item = new ListViewItem(rdr["medicine"].ToString());
+                    listView1.Items.Add(rdr["medicine"].ToString());//add medicine name to list view
+                    medicines.Add(new Medicine(
+                        rdr["medicine"].ToString(), rdr["name"].ToString(), 
+                        DateTime.Parse(rdr["datePrescribed"].ToString()))); //add medicines to local list
 
-                    listView1.Items.Add(item);
+                   
 
                 }
 
@@ -53,12 +60,6 @@ namespace Individual_Project
             }
         }
 
-
-        private void drNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -67,9 +68,14 @@ namespace Individual_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu main = new MainMenu();
-            main.ShowDialog();
+
+            var m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
+            if (m != null)
+            {
+                m.Show();
+            }
+            this.Close();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -101,24 +107,44 @@ namespace Individual_Project
             panel2.Visible = true;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu m = new MainMenu();
-            m.ShowDialog();
+            var m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
+            if (m != null)
+            {
+                m.Show();
+            }
+            this.Close();
+        }
+
+        public class Medicine
+        {
+            public string Name { get; set; }
+            public string drName { get; set; }
+            public DateTime DatePrescribed { get; set; }
+            public Medicine(String name, String prescriber, DateTime date)
+            {
+                this.Name = name;
+                this.drName = prescriber;
+                this.DatePrescribed = date;
+                
+            }
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int selectedIndex = listView1.SelectedIndex;
+            if (selectedIndex >= 0)
+            {
+                RxName.Text = medicines[selectedIndex].Name;
+                DrName.Text = medicines[selectedIndex].drName;
+                date.Text = medicines[selectedIndex].DatePrescribed.ToShortDateString();
+
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

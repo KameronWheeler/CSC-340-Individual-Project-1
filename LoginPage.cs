@@ -91,7 +91,7 @@ namespace Individual_Project
                         else if(SharedData.permissionLevel == 3)
                         {
                             // Clerk
-                            ClerkPayment clerkPayment = new ClerkPayment();
+                            ClerkMenu clerkPayment = new ClerkMenu();
                             this.Hide();
                             clerkPayment.ShowDialog();
                             this.Close();

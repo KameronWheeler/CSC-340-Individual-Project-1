@@ -99,17 +99,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClerkPayment.cs">
+    <Compile Include="ClerkMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClerkPayment.Designer.cs">
-      <DependentUpon>ClerkPayment.cs</DependentUpon>
+    <Compile Include="ClerkMenu.Designer.cs">
+      <DependentUpon>ClerkMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="ClerkProcessPayment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClerkProcessPayment.Designer.cs">
       <DependentUpon>ClerkProcessPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkViewHistoricalBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkViewHistoricalBills.Designer.cs">
+      <DependentUpon>ClerkViewHistoricalBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkViewOpenBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkViewOpenBills.Designer.cs">
+      <DependentUpon>ClerkViewOpenBills.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctorMedicineRequest.cs">
       <SubType>Form</SubType>
@@ -199,11 +211,17 @@
     <Compile Include="UserViewAppointments.Designer.cs">
       <DependentUpon>UserViewAppointments.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ClerkPayment.resx">
-      <DependentUpon>ClerkPayment.cs</DependentUpon>
+    <EmbeddedResource Include="ClerkMenu.resx">
+      <DependentUpon>ClerkMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClerkProcessPayment.resx">
       <DependentUpon>ClerkProcessPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkViewHistoricalBills.resx">
+      <DependentUpon>ClerkViewHistoricalBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkViewOpenBills.resx">
+      <DependentUpon>ClerkViewOpenBills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorMedicineRequest.resx">
       <DependentUpon>DoctorMedicineRequest.cs</DependentUpon>

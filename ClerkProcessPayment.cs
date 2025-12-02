@@ -18,45 +18,18 @@ namespace Individual_Project
         public ClerkProcessPayment()
         {
             InitializeComponent();
-            
+            reload();
+
         }
 
         private void ClerkProcessPayment_Load(object sender, EventArgs e)
         {
-            string connStr = "server = csitmariadb.eku.edu; user = student; database = csc340_db; port = 3306; password = Maroon@21?;";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
-            string sql = "SELECT b.*, u.name FROM wheeler_bills b inner join wheeler_users u on b.patientID = u.ID WHERE paymentAttempt = 1";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                PaymentInfo p = new PaymentInfo(
-                    Convert.ToInt32(rdr["appointmentID"]),
-                    Convert.ToInt32(rdr["doctorID"]),
-                    Convert.ToInt32(rdr["patientID"]),
-                    DateTime.Parse(rdr["date"].ToString()),
-                    Decimal.Parse(rdr["cost"].ToString()),
-                    Decimal.Parse(rdr["paymentAmount"].ToString()),
-                    rdr["name"].ToString()
-                    );
-                payments.Add(p);
-
-            }
-
-            foreach (PaymentInfo p in payments)
-            {
-                requestList.Items.Add(p.name);
-            }
+            
 
         }
 
         public class PaymentInfo
-        {
-
-            //paymentAttempted bit will always be true if this class is being used
-
-
+        {   //paymentAttempted bit will always be true if this class is being used
 
             public int appointmentID { get; set; }
 
@@ -82,8 +55,6 @@ namespace Individual_Project
                 ammountPaid = AmountPaid;
                 name = Name;
             }
-            
-
 
         }
 
@@ -100,8 +71,68 @@ namespace Individual_Project
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["ClerkPayment"].Show();
+            var c = Application.OpenForms.OfType<ClerkMenu>().FirstOrDefault();
+            if (c != null)
+            {
+                c.Show();
+            }
             this.Close();
+        }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+            string connStr = "server = csitmariadb.eku.edu; user = student; database = csc340_db; port = 3306; password = Maroon@21?;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "UPDATE wheeler_bills SET paid = 1, paymentAttempt = 0 WHERE appointmentID = @appointmentID";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@appointmentID", payments[requestList.SelectedIndex].appointmentID);
+            cmd.ExecuteNonQuery();
+            reload();
+        }
+
+        private void reload()
+        {
+            requestList.Items.Clear();
+            payments.Clear();
+            string connStr = "server = csitmariadb.eku.edu; user = student; database = csc340_db; port = 3306; password = Maroon@21?;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "SELECT b.*, u.name FROM wheeler_bills b inner join wheeler_users u on b.patientID = u.ID WHERE paymentAttempt = 1";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                PaymentInfo p = new PaymentInfo(
+                    Convert.ToInt32(rdr["appointmentID"]),
+                    Convert.ToInt32(rdr["doctorID"]),
+                    Convert.ToInt32(rdr["patientID"]),
+                    DateTime.Parse(rdr["date"].ToString()),
+                    Decimal.Parse(rdr["cost"].ToString()),
+                    Decimal.Parse(rdr["paymentAmount"].ToString()),
+                    rdr["name"].ToString()
+                    );
+                payments.Add(p);
+
+            }
+
+            foreach (PaymentInfo p in payments)
+            {
+                requestList.Items.Add(p.name);
+                Console.WriteLine(p.name);
+            }
+        }
+
+        private void rejectButton_Click(object sender, EventArgs e)
+        {
+            string connStr = "server = csitmariadb.eku.edu; user = student; database = csc340_db; port = 3306; password = Maroon@21?;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "UPDATE wheeler_bills SET paid = 0, paymentAttempt = 0 WHERE appointmentID = @appointmentID";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@appointmentID", payments[requestList.SelectedIndex].appointmentID);
+            cmd.ExecuteNonQuery();
+            reload();
         }
     }
 

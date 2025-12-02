@@ -1,6 +1,6 @@
 ﻿namespace Individual_Project
 {
-    partial class ClerkPayment
+    partial class ClerkMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -45,6 +45,7 @@
             this.button2.TabIndex = 21;
             this.button2.Text = "View Open Bills";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -66,6 +67,7 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "View Closed Bills";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label2
             // 
@@ -77,15 +79,15 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "EKU Hospital Management System";
             // 
-            // label1
+            // NameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Hello [USERNAME]";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(12, 81);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(225, 29);
+            this.NameLabel.TabIndex = 17;
+            this.NameLabel.Text = "Hello [USERNAME]";
             // 
             // button3
             // 
@@ -98,7 +100,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // ClerkPayment
+            // ClerkMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,10 +110,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "ClerkPayment";
+            this.Controls.Add(this.NameLabel);
+            this.Name = "ClerkMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClerkPayment";
+            this.Load += new System.EventHandler(this.ClerkPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +126,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Button button3;
     }
 }

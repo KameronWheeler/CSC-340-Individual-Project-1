@@ -37,10 +37,8 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.drNameLabel = new System.Windows.Forms.Label();
             this.patientNameLabel = new System.Windows.Forms.Label();
-            this.purpose = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -127,7 +125,6 @@
             this.drNameLabel.Size = new System.Drawing.Size(124, 16);
             this.drNameLabel.TabIndex = 12;
             this.drNameLabel.Text = "Prescribing Doctor: ";
-            this.drNameLabel.Click += new System.EventHandler(this.drNameLabel_Click);
             // 
             // patientNameLabel
             // 
@@ -139,30 +136,9 @@
             this.patientNameLabel.TabIndex = 11;
             this.patientNameLabel.Text = "Prescription Name: ";
             // 
-            // purpose
-            // 
-            this.purpose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.purpose.Location = new System.Drawing.Point(384, 155);
-            this.purpose.Margin = new System.Windows.Forms.Padding(4);
-            this.purpose.Name = "purpose";
-            this.purpose.Size = new System.Drawing.Size(209, 22);
-            this.purpose.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(312, 158);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Purpose: ";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.purpose);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.date);
             this.panel1.Controls.Add(this.DrName);
             this.panel1.Controls.Add(this.RxName);
@@ -180,13 +156,13 @@
             // 
             // listView1
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(8, 61);
+            this.listView1.FormattingEnabled = true;
+            this.listView1.ItemHeight = 16;
+            this.listView1.Location = new System.Drawing.Point(15, 68);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(236, 260);
-            this.listView1.TabIndex = 20;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.Size = new System.Drawing.Size(230, 260);
+            this.listView1.TabIndex = 21;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // label3
             // 
@@ -259,13 +235,11 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label drNameLabel;
         private System.Windows.Forms.Label patientNameLabel;
-        private System.Windows.Forms.TextBox purpose;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListBox listView1;
     }
 }

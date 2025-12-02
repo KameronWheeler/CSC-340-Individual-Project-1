@@ -37,8 +37,7 @@ namespace Individual_Project
         {
             SharedData.ClearData();
             LoginPage l = new LoginPage();
-            l.Show();
-            this.Hide();
+            l.ShowDialog();
             this.Close();
         }
     }

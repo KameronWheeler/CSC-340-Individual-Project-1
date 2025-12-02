@@ -12,6 +12,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Individual_Project
 {
+    
     public partial class UserViewAppointments : Form
     {
         List<int> doctorIDs = new List<int>();
@@ -20,6 +21,7 @@ namespace Individual_Project
         public UserViewAppointments()
         {
             InitializeComponent();
+            
             //button2.Enabled = false;//disabled until an appointment is selected
             string connStr =
             "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
@@ -56,9 +58,12 @@ namespace Individual_Project
 
         private void button1_Click(object sender, EventArgs e)//Main menu button
         {
-            MainMenu m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
-            this.Hide();
-            m.Show();
+            var m = Application.OpenForms.OfType<MainMenu>().FirstOrDefault();
+            if (m != null)
+            {
+                m.Show();
+            }
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
