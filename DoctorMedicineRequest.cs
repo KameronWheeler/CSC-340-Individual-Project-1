@@ -33,41 +33,47 @@ namespace Individual_Project
             requestList.Items.Clear();
             medicineRequests.Clear();
             int doctorID = SharedData.userID;
-            //stored locally
-            
-            string connStr =
-            "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-            MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(connStr);
-            try
+
+            string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
+            using (var conn = new MySql.Data.MySqlClient.MySqlConnection(connStr))
             {
-                conn.Open();
-                String sql = "SELECT p.*, u.name as name FROM wheeler_prescriptions p INNER JOIN wheeler_users u ON p.patientID = u.ID WHERE doctorID = '" + SharedData.userID + "' AND requested = 1;";
-                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@doctorID", SharedData.userID);
-                MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-
-
-                while (rdr.Read())
+                try
                 {
-                    requestList.Items.Add(rdr["name"].ToString());
-                    medicineRequests.Add(new Prescription(int.Parse(rdr["requestID"].ToString()),rdr["medicine"].ToString(), 
-                        rdr["name"].ToString(), DateTime.Parse(rdr["datePrescribed"].ToString()), int.Parse(rdr["number_Refills"].ToString())));
-                   
+                    conn.Open();
+                    string sql = @"SELECT p.requestID, p.medicine, p.datePrescribed, p.number_Refills, 
+                                  u.name AS name 
+                           FROM wheeler_prescriptions p 
+                           INNER JOIN wheeler_users u ON p.patientID = u.ID 
+                           WHERE p.doctorID = @doctorID AND p.requested = 1;";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@doctorID", doctorID);
+
+                        using (var rdr = cmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                               
+                                // Keep local Prescription object list in sync
+                                medicineRequests.Add(new Prescription(
+                                    int.Parse(rdr["requestID"].ToString()),
+                                    rdr["medicine"].ToString(),
+                                    rdr["name"].ToString(),
+                                    DateTime.Parse(rdr["datePrescribed"].ToString()),
+                                    int.Parse(rdr["number_Refills"].ToString())
+                                ));
+                                requestList.Items.Add(rdr["medicine"].ToString());
+
+                            }
+                        }
+                    }
                 }
-
-
-                rdr.Close();
-
-
-                
-
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-        
         }
         private void DoctorMedicineRequest_Load(object sender, EventArgs e)
         {

@@ -60,6 +60,7 @@ namespace Individual_Project
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             dateBox.Text = monthCalendar1.SelectionStart.ToShortDateString();
+            updateSQL();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,7 +72,7 @@ namespace Individual_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            updateSQL();
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

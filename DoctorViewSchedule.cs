@@ -65,7 +65,11 @@ namespace Individual_Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Application.OpenForms.OfType<DoctorMenu>().First().Show();
+            var c = Application.OpenForms.OfType<DoctorMenu>().FirstOrDefault();
+            if (c != null)
+            {
+                c.Show();
+            }
             this.Close();
         }
 
